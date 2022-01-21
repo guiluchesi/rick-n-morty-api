@@ -5,7 +5,7 @@ import {
   listCharactersSerializer,
   characterDetailsSerializer,
 } from './characters.serializer';
-import { CharacterDto } from './character.dto';
+import { CharacterDto, CharacterDetailsDto } from './character.dto';
 
 @Controller('characters')
 export class CharactersController {
@@ -19,7 +19,9 @@ export class CharactersController {
   }
 
   @Get(':id')
-  async getCharacterDetails(@Param('id') id: number): Promise<any> {
+  async getCharacterDetails(
+    @Param('id') id: number,
+  ): Promise<CharacterDetailsDto> {
     const apiCharacterDetails =
       await this.rickNMortyService.getCharacterDetails(id);
 
