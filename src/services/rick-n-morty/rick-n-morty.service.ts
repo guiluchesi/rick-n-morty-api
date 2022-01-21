@@ -11,8 +11,8 @@ export class RickNMortyService {
       `https://rickandmortyapi.com/api/character?page=${page}`,
     );
 
-    const episodes = response.data.results;
-    return episodes;
+    const charecters = response.data.results;
+    return charecters;
   }
 
   async getCharacterDetails(characterId: number): Promise<CharacterDto> {
