@@ -5,7 +5,12 @@ import {
   listCharactersSerializer,
   characterDetailsSerializer,
 } from './characters.serializer';
-import { CharacterDto, CharacterDetailsDto } from './character.dto';
+
+import {
+  CharacterDto,
+  CharacterDetailsDto,
+  CharactersCountDto,
+} from './character.dto';
 
 @Controller('characters')
 export class CharactersController {
@@ -16,6 +21,12 @@ export class CharactersController {
     const apiCharacters = await this.rickNMortyService.listCharacters(page);
     const characters = listCharactersSerializer(apiCharacters);
     return characters;
+  }
+
+  @Get('count')
+  async countCharacters(): Promise<CharactersCountDto> {
+    const charactersCount = await this.rickNMortyService.countCharacters();
+    return { charactersCount };
   }
 
   @Get(':id')

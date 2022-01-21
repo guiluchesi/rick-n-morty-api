@@ -29,4 +29,13 @@ export class RickNMortyService {
     const characterDetails = response.data;
     return characterDetails;
   }
+
+  async countCharacters(): Promise<number> {
+    const response = await axios.get(
+      'https://rickandmortyapi.com/api/character',
+    );
+
+    const charactersCount = response.data.info.count;
+    return charactersCount;
+  }
 }

@@ -21,3 +21,7 @@ export class CharacterDetailsDto {
     episode: string;
   }[];
 }
+
+export class CharactersCountDto {
+  charactersCount: number;
+}
