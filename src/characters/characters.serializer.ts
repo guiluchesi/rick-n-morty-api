@@ -26,7 +26,7 @@ export const characterDetailsSerializer = (
     id: character.id,
     name: character.name,
     status: character.status,
-    species: character.status,
+    species: character.species,
     location: character.location.name,
     image: character.image,
     episodes: episodes.map((episode: ServiceEpisodeDto) => ({
